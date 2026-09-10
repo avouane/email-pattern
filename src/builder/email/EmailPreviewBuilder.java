@@ -11,4 +11,9 @@ public class EmailPreviewBuilder implements EmailBuilder {
     public EmailPreviewBuilder setBody(String body) {
         sb.append("Body:    ").append(body).append("\n"); return this; }
     private String subject, to;
+    public String getResult() {
+        if (to == null || subject == null)
+            throw new IllegalStateException("To and Subject are required");
+        return sb.toString();
+    }
 }
