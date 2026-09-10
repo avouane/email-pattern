@@ -7,7 +7,11 @@ public class EmailObjectBuilder implements EmailBuilder {
     public EmailObjectBuilder setTo(String to) { this.to = to; return this; }
     public EmailObjectBuilder setSubject(String subject) { this.subject = subject; return this; }
     public EmailObjectBuilder setBody(String body) { this.body = body; return this; }
+
     public Email getResult() {
+        if (from == null || to == null || subject == null)
+            throw new IllegalStateException("From, To and Subject are required");
         return new Email(from, to, subject, body);
     }
+
 }
