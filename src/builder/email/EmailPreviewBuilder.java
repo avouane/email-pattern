@@ -10,4 +10,5 @@ public class EmailPreviewBuilder implements EmailBuilder {
         sb.append("Subject: ").append(subject).append("\n"); return this; }
     public EmailPreviewBuilder setBody(String body) {
         sb.append("Body:    ").append(body).append("\n"); return this; }
+    private String subject, to;
 }
